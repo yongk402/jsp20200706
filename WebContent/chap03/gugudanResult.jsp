@@ -26,7 +26,7 @@ request.setCharacterEncoding("utf-8");
 %>
 	<p>
 	<b> <%=gugu%> *	<%=i %> =	</b>
-	<a style="color:red"> <%= gugu * i %> </a>
+	<a style="color:green"> <%= gugu * i %> </a>
 
 <%
 }
