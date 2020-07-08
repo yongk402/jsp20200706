@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.util.Enumeration" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,22 +11,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>클라이언트 및 서버 정보</title>
+<title>초기화 파라미터 읽어오기</title>
 </head>
 <body>
 
-
-<%--http://172.30.1.15:8090/myjsp99/chap03/requestInfo.jsp --%>
-클라이언트IP = <%=request.getRemoteAddr() %> <br>
-요청정보길이 = <%=request.getContentLength() %> <br>
-요청정보 인코딩 = <%=request.getCharacterEncoding() %> <br>
-요청정보 컨텐츠타입 = <%=request.getContentType() %> <br>
-요청정보 프로토콜 = <%=request.getProtocol() %> <br>
-요청정보 전송방식 = <%=request.getMethod() %> <br>
-요청 URI = <%=request.getRequestURI() %> <br>
-컨텍스트 경로 = <%=request.getContextPath() %> <br>
-서버이름 = <%=request.getServerName() %> <br>
-서버포트 = <%=request.getServerPort() %> <br>
+초기화 파라미터 목록:
+<ul> 
+<%
+	Enumeration<String> initParamEnum = application.getInitParameterNames();
+	while (initParamEnum.hasMoreElements()) {
+		String initParamName = initParamEnum.nextElement();
+%>
+<li><%= initParamName %> = <%= application.getInitParameter(initParamName) %>
+<%
+	}
+%>
+</ul>
 
 </body>
 </html>

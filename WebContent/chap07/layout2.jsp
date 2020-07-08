@@ -10,22 +10,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>클라이언트 및 서버 정보</title>
+<title>layout2</title>
 </head>
 <body>
 
-
-<%--http://172.30.1.15:8090/myjsp99/chap03/requestInfo.jsp --%>
-클라이언트IP = <%=request.getRemoteAddr() %> <br>
-요청정보길이 = <%=request.getContentLength() %> <br>
-요청정보 인코딩 = <%=request.getCharacterEncoding() %> <br>
-요청정보 컨텐츠타입 = <%=request.getContentType() %> <br>
-요청정보 프로토콜 = <%=request.getProtocol() %> <br>
-요청정보 전송방식 = <%=request.getMethod() %> <br>
-요청 URI = <%=request.getRequestURI() %> <br>
-컨텍스트 경로 = <%=request.getContextPath() %> <br>
-서버이름 = <%=request.getServerName() %> <br>
-서버포트 = <%=request.getServerPort() %> <br>
+<table width="400" border="1" cellpadding="0" cellspacing="0">
+<tr>
+	<td colspan="2">
+		
+		<jsp:include page="top.jsp">
+			<jsp:param name="parent" value="layout2" />
+			<jsp:param name="name" value="john" />
+		</jsp:include>
+		
+	</td>
+</tr>
+<tr>
+	<td width="100 valign="top">
+		<jsp:include page="left.jsp"></jsp:include>
+	</td>
+	<td width="300 valign="top">
+		이 부분은 layout2.jsp가 생성한다. <br />
+		레이아웃 2
+		<br /><br /><br />
+	</td>	
+</tr>
+<tr>
+	<td colspan="2">
+		<jsp:include page="bottom.jsp"></jsp:include>
+	</td>
+</tr>
+</table>
 
 </body>
 </html>
