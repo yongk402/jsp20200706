@@ -8,17 +8,18 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
- * Servlet Filter implementation class FilterEx1
+ * Servlet Filter implementation class FilterEx3
  */
-//@WebFilter("/FilterEx1")
-public class FilterEx1 implements Filter {
+//@WebFilter(servletNames = "ServletEx31")
+public class FilterEx3 implements Filter {
 
     /**
      * Default constructor. 
      */
-    public FilterEx1() {
+    public FilterEx3() {
         // TODO Auto-generated constructor stub
     }
 
@@ -35,13 +36,12 @@ public class FilterEx1 implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-
-		System.out.println("필터1 통과");
+		System.out.println("filter 3");
+		MyRequest req = new MyRequest((HttpServletRequest)request);
+		
 		
 		// pass the request along the filter chain
-		chain.doFilter(request, response);
-		
-		System.out.println("다시 필터 1 통과");
+		chain.doFilter(req, response);
 	}
 
 	/**

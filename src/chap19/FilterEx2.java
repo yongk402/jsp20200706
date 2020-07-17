@@ -39,6 +39,8 @@ public class FilterEx2 implements Filter {
 
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
+		
+		System.out.println("다시 필터 2 통과");
 	}
 
 	/**

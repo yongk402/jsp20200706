@@ -31,11 +31,11 @@
     <url-pattern>/myservlet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>ServletEx1</servlet-name>
+    <servlet-name>servletEx1</servlet-name>
     <servlet-class>chap17.ServletEx1</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ServletEx1</servlet-name>
+    <servlet-name>servletEx1</servlet-name>
     <url-pattern>/servletex1</url-pattern>
   </servlet-mapping>
   <servlet>
@@ -114,6 +114,10 @@
     <filter-class>chap19.FilterEx1</filter-class>
   </filter>
   <filter-mapping>
+    <filter-name>filterex2</filter-name>
+    <servlet-name>ServletEx3</servlet-name>
+  </filter-mapping>
+  <filter-mapping>
     <filter-name>filterex1</filter-name>
     <servlet-name>ServletEx3</servlet-name>
   </filter-mapping>
@@ -129,10 +133,6 @@
     <filter-name>filterex2</filter-name>
     <filter-class>chap19.FilterEx2</filter-class>
   </filter>
-  <filter-mapping>
-    <filter-name>filterex2</filter-name>
-    <servlet-name>ServletEx3</servlet-name>
-  </filter-mapping>
   <servlet>
     <servlet-name>vipservlet1</servlet-name>
     <servlet-class>chap19.sample.VIPFilterEx1Servlet</servlet-class>
@@ -148,5 +148,33 @@
   <filter-mapping>
     <filter-name>checkLogin</filter-name>
     <servlet-name>vipservlet1</servlet-name>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>chap19/servletex31</servlet-name>
+    <servlet-class>chap19.ServletEx31</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>chap19/servletex31</servlet-name>
+    <url-pattern>/chap19/servletex31</url-pattern>
+  </servlet-mapping>
+  <filter>
+    <filter-name>chap19/filter3</filter-name>
+    <filter-class>chap19.FilterEx3</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>chap19/filter3</filter-name>
+    <servlet-name>chap19/servletex31</servlet-name>
+  </filter-mapping>
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>chap19.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>utf-8</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
 </web-app>

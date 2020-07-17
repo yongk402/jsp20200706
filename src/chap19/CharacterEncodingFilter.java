@@ -10,15 +10,17 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
 /**
- * Servlet Filter implementation class FilterEx1
+ * Servlet Filter implementation class CharacterEncodingFilter
  */
-//@WebFilter("/FilterEx1")
-public class FilterEx1 implements Filter {
-
+@WebFilter("/CharacterEncodingFilter")
+public class CharacterEncodingFilter implements Filter {
+	
+	private String encoding;
+	
     /**
      * Default constructor. 
      */
-    public FilterEx1() {
+    public CharacterEncodingFilter() {
         // TODO Auto-generated constructor stub
     }
 
@@ -26,29 +28,27 @@ public class FilterEx1 implements Filter {
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// TODO Auto-generated method stub
+	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
 		// place your code here
-
-		System.out.println("필터1 통과");
+		req.setCharacterEncoding(encoding);
 		
 		// pass the request along the filter chain
-		chain.doFilter(request, response);
-		
-		System.out.println("다시 필터 1 통과");
+		chain.doFilter(req, res);
 	}
 
 	/**
 	 * @see Filter#init(FilterConfig)
 	 */
-	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+	public void init(FilterConfig config) throws ServletException {
+		encoding = config.getInitParameter("encodinig");
+		if(encoding ==null) {
+			encoding = "UTF-8";
+		}
 	}
 
 }
