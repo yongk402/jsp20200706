@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +10,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
-
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+<form action="sample3Forward4Main.jsp">
+	name: <input type="text" name="name" /> <br />
+	vip: <input type="checkbox" name="vip" /> <br />
+	<input type="submit" value="로그인" />
+</form>
 </body>
 </html>

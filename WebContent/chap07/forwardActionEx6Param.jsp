@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
+<h1>forward ex6 jsp</h1>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<h2><%=request.getParameter("name1") %></h2>
+<h2><%=request.getParameter("name2") %></h2>
 
-<%=a%>
 </body>
 </html>

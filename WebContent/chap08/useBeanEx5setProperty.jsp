@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+    
+<jsp:useBean id="member" scope="request" class="chap08.MemberInfo">
+	<jsp:setProperty property="name" name="member" value="seoul" />
+	<jsp:setProperty property="id" name="member" value="jeju" />
+</jsp:useBean>   
+	 
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +19,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<h1><%= member.getName() %>, <%= member.getId() %></h1>
 
-<%=a%>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
+<h1>forward ex5 jsp</h1>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<jsp:forward page="forwardActionEx6Param.jsp">
+	<jsp:param value="parameter value1" name="name1"/>
+	<jsp:param value="parameter value2" name="name2"/>
+</jsp:forward>
 
-<%=a%>
 </body>
 </html>

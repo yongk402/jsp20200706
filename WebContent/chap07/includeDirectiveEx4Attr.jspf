@@ -1,0 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%-- 코드를 옮겨가는 거기 때문에 굳이 선언을 다시 할 필요 없다. ex) User user = (User) request.getAttribute("user"); --%> 
+
+<%--    
+<%@ page import="chap05.User" %>
+
+<%
+User user2 = (User) pageContext.getAttribute("user");
+%>
+
+<h1>
+<%= user2.getAge() %>살
+<%= user2.getName() %>님 반갑습니다.
+</h1>
+--%>
+
+<h1>${user.age }살  ${user.name }님 반갑습니다.</h1>

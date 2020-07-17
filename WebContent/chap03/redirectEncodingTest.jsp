@@ -4,7 +4,7 @@
 <%
 	String value = "자바";
 	String encodedValue = URLEncoder.encode(value, "utf-8");
-	response.sendRedirect("index.jsp?name="+ encodedValue);
+	response.sendRedirect("aindex.jsp?name="+ encodedValue);
 %>
-<%-- jsp 주석입니다. --%>
+<%-- jsp 주석입니다. --%> 
 

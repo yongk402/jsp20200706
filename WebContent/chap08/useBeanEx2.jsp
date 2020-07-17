@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<jsp:useBean id="myBean" class="chap08.MyBean" scope="page" />    
+
+<%--  같은 의미
+chap08.MyBean myBean = (chap08.MyBean) request.getAttribute("myBean");
+if(myBean == null) {
+	myBean = new chap08.MyBean();
+	request.setAttribute("myBean", myBean);
+}
+
+--%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +26,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
+<p>
+<%= ((chap08.MyBean) pageContext.getAttribute("myBean")).getName() %>
+</p>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+<p>
+<%= ((chap08.MyBean) pageContext.getAttribute("myBean")).getId() %>
+</p>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+

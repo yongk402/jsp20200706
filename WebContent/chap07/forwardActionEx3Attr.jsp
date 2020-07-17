@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,18 +14,12 @@
 </head>
 <body>
 <%
-int a = 3;
+pageContext.setAttribute("name", "page attr");
+request.setAttribute("name", "request attr");
+session.setAttribute("name", "session attr");
+application.setAttribute("name", "application attr");
 %>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+<jsp:forward page="forwardActionEx4Attr.jsp"></jsp:forward>
 </body>
 </html>

@@ -32,7 +32,7 @@ address 파라미터=<%= request.getParameter("address") %>
 	if(values != null) {
 		for(int i=0; i<values.length; i++) {
 %>
-	<%= values[i] %>
+	<%= values[i]%>
 <% 				
 		}
 	}

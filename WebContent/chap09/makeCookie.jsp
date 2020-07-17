@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import = "java.net.URLEncoder" %>
+<%
+Cookie cookie = new Cookie("name", URLEncoder.encode("최범균","utf-8"));
+response.addCookie(cookie);
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +15,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+
+<title>쿠키 생성</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<%= cookie.getName() %> 쿠키의 값 = <%= cookie.getValue() %>
 
-<%=a%>
 </body>
 </html>

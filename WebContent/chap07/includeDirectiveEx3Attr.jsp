@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<form action="" method="post">
+name: <input type="text" name="name" value="john" /> <br />
+age: <input type="number" name="age" value="0" /> <br />
+<input type="submit" value="등록" />
+</form>
+
 <%
-int a = 3;
+chap05.User user = new chap05.User();
+user.setName(request.getParameter("name"));
+String ageStr = request.getParameter("age");
+ageStr = ageStr == null ? "0" : ageStr;
+user.setAge(Integer.parseInt(ageStr));
+
+pageContext.setAttribute("user", user);
 %>
-
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+<%@ include file = "includeDirectiveEx4Attr.jspf" %>
 </body>
 </html>

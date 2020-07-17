@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+이 페이지는 <b><font size="5">B</font></b> 입니다.
 
-<%=a%>
 </body>
 </html>

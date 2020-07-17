@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>Main page</h1>
+<p><%= request.getParameter("name") %></p>
+<p><%= request.getParameter("vip") %></p>
+
 <%
-int a = 3;
+String vip = request.getParameter("vip");
+if(vip == null) {
+%>
+	<jsp:forward page="sample3Forward1Normal.jsp"></jsp:forward>
+<%
+} else {
+%>
+	<jsp:forward page="sample3Forward2VIP.jsp"></jsp:forward>
+<%
+}
 %>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
 </body>
 </html>

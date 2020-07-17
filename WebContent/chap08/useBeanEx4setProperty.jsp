@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="chap05.User" %>    
+<jsp:useBean id="member" class="chap08.MemberInfo" /> 
+
+<%-- 3번 --%>
+<jsp:setProperty property="*" name="member" />
+
+<%-- 2번
+<jsp:setProperty property="name" name="member" param="name" />
+<jsp:setProperty property="id" name="member" />
+--%>
+
+<%-- 1번
+member.setName(request.getParameter("name"));
+member.setId(request.getParameter("id"));
+--%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,35 +27,35 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
 </head>
-
 <body>
+
 <form action="" method="post">
-name: <input type="text" name="name" value="jane" /> <br />
-age: <input type="number" name="age" value="0" /> <br />
+name: <input type="text" name="name" /> <br />
+id: <input type="text" name="id" /> <br />
+pw: <input type="password" name="password" /> <br />
 <input type="submit" value="등록"/>
 </form>
 
-<%
-request.setCharacterEncoding("utf-8");
-String name = request.getParameter("name");
-String ageStr = request.getParameter("age");
-
-name = name == null ? "jane" : name;
-ageStr = ageStr == null ? "0" : ageStr;
-int age = Integer.parseInt(ageStr);
-
-
-
-User user = new User();
-user.setName(name);
-user.setAge(age);
-
-request.setAttribute("user", user);
-%>
-
-<jsp:include page="sample2IncludeAttr2.jsp"></jsp:include>
+<h1>
+<%= member.getName() %>, <%= member.getId() %>님 방가, <%= member.getPassword() %>
+</h1>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import ="java.util.*" %>
+<%
+request.setCharacterEncoding("utf-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +17,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1><%= pageContext.getAttribute("name") %></h1>
+<h1><%= request.getAttribute("name") %></h1>
+<h1><%= session.getAttribute("name") %></h1>
+<h1><%= application.getAttribute("name") %></h1>
+
+<hr />
+
 <%
-int a = 3;
+
+
+Enumeration<String> attrEnum = application.getAttributeNames();
+while(attrEnum.hasMoreElements()) {
+	String name = attrEnum.nextElement();
+	Object value = application.getAttribute(name);
+%>
+application 속성: <b><%= name %></b> = <%= value %> <br />
+<% 
+}
 %>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
 
-<%=a%>
+
 </body>
 </html>

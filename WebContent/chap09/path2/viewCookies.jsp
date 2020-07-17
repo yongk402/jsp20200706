@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import = "java.net.URLDecoder" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +11,29 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+
+<title>쿠키 목록</title>
 </head>
 <body>
+쿠키목록 <br />
+<ul>
 <%
-int a = 3;
+Cookie[] cookies = request.getCookies();
+if(cookies != null && cookies.length>0) {
+	for(int i = 0; i<cookies.length; i++) {
 %>
-
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+<li>
+	<%=cookies[i].getName() %> =
+	<%= URLDecoder.decode(cookies[i].getValue(), "utf-8") %> <br />
+<%	
+	}
+}else {
+%>
+쿠키가 존재하지 않습니다.
+<%
+	}
+%>
+</li>
+</ul>
 </body>
 </html>

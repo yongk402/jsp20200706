@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+Cookie[] cookies = request.getCookies();
 
+for(Cookie c : cookies) {
+	if (c.getName().equals("my-cookie")) {
+		Cookie newCookie = new Cookie("my-cookie", "my-value3");
+		response.addCookie(newCookie);
+	}
+}
+
+
+//Cookie cookie = new Cookie("my-cookie", "my-value2");
+//response.addCookie(cookie);
+
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +25,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+
+<title>쿠키 값 변경</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
 </body>
 </html>

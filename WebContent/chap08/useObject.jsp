@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="member" scope="request" class="chap08.MemberInfo" />    
 
 <!DOCTYPE html>
 <html>
@@ -11,22 +12,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>인사말</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<%= member.getName() %> (<%= member.getId() %>) 회원님 안녕하세요.
 
-<%=a%>
 </body>
 </html>

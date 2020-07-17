@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
+<h1>path1 jsp</h1>
+<a href="path2.jsp">path2</a> <br />
+<a href="sub/sub2.jsp">sub2</a> <br />
+<a href="/myjsp/chap07/path/path2.jsp">path2 absolute</a> <br />
+<a href="<%=request.getContextPath() %>/chap07/path/path2.jsp">path2 absolute2</a> <br />
+<a href="<%=request.getContextPath() %>/WEB-INF/webinf1.jsp">webinf1</a>
+<p><%=request.getContextPath() %></p>
+<hr />
+<jsp:include page="/WEB-INF/webinf1.jsp"></jsp:include>
+<jsp:include page="path2.jsp"></jsp:include>
+<jsp:include page="sub/sub1.jsp"></jsp:include>
+<jsp:include page="/chap07/path/path2.jsp"></jsp:include>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
 
-<%=a%>
 </body>
 </html>

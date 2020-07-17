@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%
+	String memberId = (String)session.getAttribute("MEMBERID");
+	boolean login = memberId == null ? false : true;
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +14,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+
+<title>로그인 여부 검사</title>
 </head>
 <body>
 <%
-int a = 3;
+	if(login) {
 %>
-
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+아이디 "<%= memberId %>"로 로그인 한 상태
+<%
+	} else {
+%>
+로그인하지 않은 상태
+<%
+	}
+%>
 </body>
 </html>

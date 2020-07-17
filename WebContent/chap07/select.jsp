@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +10,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>옵션 선택 화면</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
+<%=request.getContextPath() %>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<form action="<%= request.getContextPath()%>/chap07/view.jsp">
 
-<%=a%>
+보고 싶은 페이지 선택:
+	<select name="code">
+		<option value="A">A 페이지</option>
+		<option value="B">B 페이지</option>
+		<option value="C">C 페이지</option>
+	</select>
+
+<input type="submit" value="이동" />	
+	
+</form>
+
 </body>
 </html>

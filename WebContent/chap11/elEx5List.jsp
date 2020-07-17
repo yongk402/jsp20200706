@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ page import="java.util.*" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +12,41 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
 <%
-int a = 3;
+List<String> list = new ArrayList<>();
+list.add("java");
+list.add("html");
+list.add("css");
+list.add(null);
+
+request.setAttribute("mylist", list);
+pageContext.setAttribute("myNum", "2");
 %>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<h1>${mylist["0"] }</h1>
+<h1>${mylist[1] }</h1>
+<h1>${mylist[2] }</h1>
+<h1>${mylist[3] }</h1>		//null인경우 출력안함
+<h1><%= ((List<String>)request.getAttribute("mylist")).get(3) %></h1>
 
-<%=a%>
+<h1>${mylist[myNum] }</h1>  //myNum = 2 된다
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

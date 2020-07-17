@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,19 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-int a = 3;
-%>
-
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
-
-<%=a%>
+<h1>sub2 jsp</h1>
+<hr />
+<jsp:include page="../path2.jsp"></jsp:include>
+<jsp:include page="/chap07/path/path2.jsp"></jsp:include>
 </body>
 </html>

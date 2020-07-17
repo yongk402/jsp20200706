@@ -11,22 +11,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
 <%
-int a = 3;
+String[] arr = {"java", "css", "jquery"};
+request.setAttribute("myArr", arr);
 %>
 
-<%= request %>
-<%= response %> 
-<%= out %>
-<%= session %>
-<%= application %>
-<%= page %>
-<%= pageContext %>
-<%= config %>
+<h1>${myArr[0] }</h1>
+<h1>${myArr["1"] }</h1>
+<h1>${myArr[2] }</h1>
+<hr />
 
-<%=a%>
+<ul>
+<% 
+for (int i=0; i<arr.length; i++) {
+	pageContext.setAttribute("i",i); //i라는 값을 찾을수 있게 만들어준다.
+%>
+	<li>${myArr[i] }</li>
+<%	
+}
+%>
+</ul>
+
 </body>
 </html>
