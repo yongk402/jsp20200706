@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*, java.util.*" %>   
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/chap16" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +14,31 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
-<%
-String s = null;
-//out.write(s);
-out.print(s);
+<h1>회원 가입</h1>
 
-out.write("<h1>HELLO</h1>");
-out.print("<h1>JAVA</h1>");
-out.println("<h1>JSP</h1>");
-out.println("<h1>Servelet</h1>");
-%>
-<%="<h1>html</h1>" %>
+<form action="" method="post">
+이메일: <input type="email" name="email" /> <br />
+패스워드: <input type="password" name="password" /> <br />
+이름: <input type="text" name="name" /> <br />
+나이: <input type="number" name="age" /> <br />
+<input type="submit" value="등록" />
+</form>
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

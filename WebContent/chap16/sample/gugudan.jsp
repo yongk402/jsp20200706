@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags/chap16" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,19 +14,24 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
-<%
-String s = null;
-//out.write(s);
-out.print(s);
+<h1>구구단</h1>
 
-out.write("<h1>HELLO</h1>");
-out.print("<h1>JAVA</h1>");
-out.println("<h1>JSP</h1>");
-out.println("<h1>Servelet</h1>");
-%>
-<%="<h1>html</h1>" %>
+<my:gugudan dan="3" />
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
