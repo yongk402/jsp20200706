@@ -81,7 +81,7 @@ public class SignUpServlet extends HttpServlet {
 				// 정상
 				System.out.println("정상 입력");
 				
-				ResultSet rs = ps.getGeneratedKeys();
+				ResultSet rs = ps.getGeneratedKeys(); //getGeneratedKeys!!!
 				
 				if (rs.next()) {
 //					System.out.println("id: " + rs.getInt(1));
@@ -90,7 +90,7 @@ public class SignUpServlet extends HttpServlet {
 					mem.setName(name);
 					mem.setEmail(email);
 					mem.setPassword(password);
-					mem.setId(rs.getInt(1));
+					mem.setId(rs.getInt(1));  //getGeneratedKeys 일 때는 컬럼번호로만 인식된다
 					
 					HttpSession session = request.getSession();
 					session.setAttribute("member", mem);
